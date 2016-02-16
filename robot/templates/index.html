@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<div class="controller">
+    <h1>Seus robôs..</h1>
+    {% for robot in objects_list %}
+        <a href="{% url 'robot_controller' robot.pk %}">Robô: {{robot.pk}}</a>
+    {% endfor %}
+</div>
+
+<form id="user-form">
+    <input id="token" type="hidden" value="{{token}}" />
+    <input id="user" type="hidden" value="{{user}}" />
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="{% static 'main.js' %}"></script>

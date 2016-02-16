@@ -43,3 +43,12 @@ class RobotControllerView(LoginRequiredView, TemplateView):
         contex['token'] = Token.objects.get(user=self.request.user)
         contex['user'] = self.request.user.pk
         return contex
+
+
+class RobotUserIndex(LoginRequiredView, TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        contex = super(RobotUserIndex, self).get_context_data(**kwargs)
+        contex['objects_list'] = Robot.objects.filter(user=self.request.user)
+        return contex
