@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<div class="controller">
+    <button class="controle" data-command="A">Anda</button>
+    <button class="controle" data-command="P">Para</button>
+</div>
+
+<form id="user-form">
+    <input id="token" type="hidden" value="{{token}}" />
+    <input id="user" type="hidden" value="{{user}}" />
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="{% static 'main.js' %}"></script>
